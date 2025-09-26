@@ -1,6 +1,7 @@
 public class User {
     String name;
     int age;
+    private int id;
     User(){
         System.out.println("User constructor called without params");
     } // called if no super() is called in the child class

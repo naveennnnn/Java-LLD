@@ -27,5 +27,8 @@ public class Main_shallow_copy_ex {
         for(int i:s2.l){
             System.out.println(i);
         }
+
+        Instructor i1 = new Instructor("Naveen",23);
+        // i1.id = 101; // Not allowed because id is private in parent class
     }
 }
