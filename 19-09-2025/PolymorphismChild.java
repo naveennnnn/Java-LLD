@@ -4,7 +4,7 @@ public class PolymorphismChild extends PolymorphismParent {
     @Override // required as a best practices.Throws error if method signature is not matching with parent class.
     public void login(int val){
         System.out.println("Child Login");
-        System.out.println("Age: "+age); // can be access
+        System.out.println("Age: "+val); // can be access
     }
     public void login(String name){
         System.out.println("Child Login with name: "+name);

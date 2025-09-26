@@ -1,3 +1,4 @@
+import java.util.*;
 public class Client {
     public static void main(String[] args){
         // PolymorphismParent p = new PolymorphismParent();
@@ -14,10 +15,18 @@ public class Client {
         c1.name = "Naveen";
         // c1.psp = 9.5f; // Not allowed
         // c1.login(c1.name); // not allowed
-        int x = c1.login(300);
-        System.out.println("X: "+x);
+        c1.login(300);
+        // System.out.println("X: "+x);
         c1.login(c1.age); // allowed
         c1.getName(); // 
         // c1.getpsp(); // Not allowed
+
+    /*
+     * Interface Implementation 
+     */
+        InterfaceA obj = new InterfaceExtends();
+        obj.walk();
+        // obj.run(); // Not allowed because run is not present in the parent InterfaceA
+        List<Integer> arr = new ArrayList<>();
     }
 }
