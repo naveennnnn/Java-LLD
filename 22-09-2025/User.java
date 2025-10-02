@@ -1,5 +1,5 @@
 public abstract class User {
-    private String name;
+    public String name;
     private int id;
     private String contactInfo;
     private static  int idInitializer = 1;
@@ -9,6 +9,10 @@ public abstract class User {
         this.id = generateId();
     }
     public User(){
+        this.id = generateId();
+    }
+    public User(String name){
+        this.name = name;
         this.id = generateId();
     }
     private int generateId(){

@@ -6,8 +6,8 @@ public class Main_shallow_copy_ex {
         new_l.add(1);
         new_l.add(2);
         new_l.add(3);
-        Student s1 = new Student(23,"Naveen",new_l);
-        Student s2 = new Student(s1);
+        Student1 s1 = new Student1(23,"Naveen",new_l);
+        Student1 s2 = new Student1(s1);
         System.out.println(s1.age +" "+ s1.name);
         System.out.println(s2.age +" "+ s2.name);
         for(int i:s1.l){
