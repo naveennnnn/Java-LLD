@@ -1,4 +1,7 @@
 public class Student extends Member{
+    public static int rollNo;
+    public static String std;
+
     public Student(){
         super(); // Call parent constructor
         borrowedBooksLimit = 5;
