@@ -1,6 +1,6 @@
-public class ListNode<T> {
+public class ListNode<T extends Item> {
     public ListNode <T> next;
-    public LsitNode <T> prev;
+    public ListNode <T> prev;
     private T data;
     public ListNode(T d){
         this.data = d;

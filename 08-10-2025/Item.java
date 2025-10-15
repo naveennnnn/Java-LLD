@@ -1,4 +1,5 @@
-public class Item implements Comparable<T>{
+import java.util.Comparator;
+public class Item implements Comparable<Item>{ // T can also be Item
     private int id;
     private String name;
     private int price;
@@ -11,7 +12,7 @@ public class Item implements Comparable<T>{
         this.quantity = quantity;
     }
     @Override
-    public T compareTo(T n){
+    public int compareTo(Item n){
         return this.price - n.price;
     }
     public int getId(){
