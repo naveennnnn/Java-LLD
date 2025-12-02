@@ -1,19 +1,26 @@
 package Machine_Coding.Tic_Tac_Toe.Models;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import Machine_Coding.Tic_Tac_Toe.Strategy.WinningStrategy;
+
 public class Game {
-    private Board board;
-    private List<Player> players;
-    private GameState gameState;
-    private List<Move> moves;
-    private int nextPlayerIndex;
-    public Game(Board board, List<Player> players, GameState gameState, List<Move> moves, int nextPlayerIndex) {
-        this.board = board;
-        this.players = players;
-        this.gameState = gameState;
-        this.moves = moves;
-        this.nextPlayerIndex = nextPlayerIndex;
+    // To start the Game what are all required
+    private Board board; // The dimensions are required
+    private List<Player> players; // Players are required
+    private GameState gameState;    // NOT ReQUIRED, INITIALLLY IT WILL BE START
+    private List<Move> moves;       // NOT REQUIRED
+    private int nextPlayerIndex;    // 0 INITIALLY
+    private List<WinningStrategy> winningStrategies;
+    
+    public Game(int dimension,List<Player> player,List<WinningStrategy> winningStrategies) {
+        this.board = new Board(dimension);
+        this.players = player;
+        this.gameState = GameState.IN_PROGRESS;
+        this.moves = new ArrayList<>();
+        this.nextPlayerIndex = 0;
+        this.winningStrategies = winningStrategies;
     }
     public Board getBoard() {
         return board;
@@ -45,5 +52,10 @@ public class Game {
     public void setNextPlayerIndex(int nextPlayerIndex) {
         this.nextPlayerIndex = nextPlayerIndex;
     }
-    
+    public List<WinningStrategy> getWinningStrategies() {
+        return winningStrategies;
+    }
+    public void setWinningStrategies(List<WinningStrategy> winningStrategies) {
+        this.winningStrategies = winningStrategies;
+    }
 }
