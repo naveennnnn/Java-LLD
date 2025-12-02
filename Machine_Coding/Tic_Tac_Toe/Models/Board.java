@@ -25,12 +25,24 @@ public class Board {
     public void setSize(int size) {
         this.size = size;
     }
-    public List<List<Cell>> getCells() {
-        return cells;
+    public Cell getCell(int row,int col){
+        return cells.get(row).get(col);
     }
     public void setCells(List<List<Cell>> cells) {
         this.cells = cells;
     }
 
-    
+    public void display() {
+        for(int i = 0;i<size;i++){
+            for(int j = 0;j<size;j++){
+                Cell currCell = this.getCell(i, j);
+                if(currCell.getCellState()==CellState.OCCUPIED){
+                    System.out.print("| "+currCell.getPlayer().getSymbol()+" |");
+                }
+                else{
+                    System.out.print("|   |");
+                }
+            }
+        }
+    }
 }

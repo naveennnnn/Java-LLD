@@ -1,7 +1,7 @@
 package Machine_Coding.Tic_Tac_Toe.Models;
 
 public enum GameState {
-    END,
+    WON,
     DRAW,
     IN_PROGRESS
 }

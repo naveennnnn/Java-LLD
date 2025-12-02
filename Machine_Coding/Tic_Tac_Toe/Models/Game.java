@@ -2,6 +2,7 @@ package Machine_Coding.Tic_Tac_Toe.Models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import Machine_Coding.Tic_Tac_Toe.Strategy.WinningStrategy;
 
@@ -13,6 +14,7 @@ public class Game {
     private List<Move> moves;       // NOT REQUIRED
     private int nextPlayerIndex;    // 0 INITIALLY
     private List<WinningStrategy> winningStrategies;
+    private Player winner;
     
     public Game(int dimension,List<Player> player,List<WinningStrategy> winningStrategies) {
         this.board = new Board(dimension);
@@ -57,5 +59,28 @@ public class Game {
     }
     public void setWinningStrategies(List<WinningStrategy> winningStrategies) {
         this.winningStrategies = winningStrategies;
+    }
+    public void makeMove(){
+        Player currPlayer = players.get(nextPlayerIndex);
+        Move newMove = currPlayer.makeMove(this.board);
+        moves.add(newMove);
+        for(WinningStrategy winningStrategy:winningStrategies){
+            if(winningStrategy.checkWinner(board,newMove)){
+                this.winner = currPlayer;
+                this.gameState = GameState.WON;
+            }
+        }
+        nextPlayerIndex += 1;
+        nextPlayerIndex = nextPlayerIndex % players.size();
+    }
+    public void undo() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'undo'");
+    }
+    public void printBoard() {
+        this.board.display();
+    }
+    public Player getWinner() {
+        return winner;
     }
 }

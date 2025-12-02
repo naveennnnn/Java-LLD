@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import Machine_Coding.Tic_Tac_Toe.Controller.GameController;
+import Machine_Coding.Tic_Tac_Toe.Models.Game;
+import Machine_Coding.Tic_Tac_Toe.Models.GameState;
 import Machine_Coding.Tic_Tac_Toe.Models.Player;
 import Machine_Coding.Tic_Tac_Toe.Models.PlayerType;
 import Machine_Coding.Tic_Tac_Toe.Strategy.ColWinningStrategy;
@@ -38,6 +40,21 @@ public class Main {
             players.add(new Player(name,symbol,PlayerType.HUMAN));
         }
         GameController gameController = new GameController();
-
+        Game game = gameController.startGame(size, players, winningStrategies);
+        while(game.getGameState() == GameState.IN_PROGRESS){
+            gameController.displayBoard(game);
+            System.out.println("Do you want to undo");
+            if(sc.next() == "Y"){
+                gameController.undo(game);
+                continue;
+            }
+            gameController.makeMove(game);
+        }
+        if(game.getGameState().equals(GameState.DRAW)){
+            System.out.println("Game is Drawn");
+        }
+        else{
+            System.out.println("Winner is: " + gameController.getWinner(game).getName());
+        }
     }
 }
