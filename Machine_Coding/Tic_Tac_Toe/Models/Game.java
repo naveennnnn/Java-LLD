@@ -64,12 +64,8 @@ public class Game {
         Player currPlayer = players.get(nextPlayerIndex);
         Move newMove = currPlayer.makeMove(this.board);
         moves.add(newMove);
-        for(WinningStrategy winningStrategy:winningStrategies){
-            if(winningStrategy.checkWinner(board,newMove)){
-                this.winner = currPlayer;
-                this.gameState = GameState.WON;
-            }
-        }
+
+        checkWinner(currPlayer,newMove);
         nextPlayerIndex += 1;
         nextPlayerIndex = nextPlayerIndex % players.size();
     }
@@ -82,5 +78,13 @@ public class Game {
     }
     public Player getWinner() {
         return winner;
+    }
+    private void checkWinner(Player currPlayer,Move newMove){
+        for(WinningStrategy winningStrategy:winningStrategies){
+            if(winningStrategy.checkWinner(board,newMove)){
+                this.winner = currPlayer;
+                this.gameState = GameState.WON;
+            }
+        }
     }
 }

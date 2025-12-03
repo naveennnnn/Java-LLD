@@ -10,6 +10,7 @@ public class Board {
     
     public Board(int size) {
         this.size = size;
+        cells = new ArrayList<>();
         for(int i = 0;i<size;i++){
             List<Cell> innerCell = new ArrayList<>();
             for(int j = 0;j<size;j++){
@@ -43,6 +44,7 @@ public class Board {
                     System.out.print("|   |");
                 }
             }
+            System.out.println();
         }
     }
 }
