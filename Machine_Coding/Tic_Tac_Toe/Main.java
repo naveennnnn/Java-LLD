@@ -43,17 +43,19 @@ public class Main {
         Game game = gameController.startGame(size, players, winningStrategies);
         while(game.getGameState() == GameState.IN_PROGRESS){
             gameController.displayBoard(game);
-            System.out.println("Do you want to undo");
-            if(sc.next() == "Y"){
-                gameController.undo(game);
-                continue;
-            }
+            // System.out.println("Do you want to undo");
+            // if(sc.next() == "Y"){
+            //     gameController.undo(game);
+            //     continue;
+            // }
             gameController.makeMove(game);
         }
         if(game.getGameState().equals(GameState.DRAW)){
+            gameController.displayBoard(game);
             System.out.println("Game is Drawn");
         }
         else{
+            gameController.displayBoard(game);
             System.out.println("Winner is: " + gameController.getWinner(game).getName());
         }
     }

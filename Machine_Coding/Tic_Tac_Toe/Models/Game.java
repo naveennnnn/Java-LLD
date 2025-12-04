@@ -68,10 +68,12 @@ public class Game {
         checkWinner(currPlayer,newMove);
         nextPlayerIndex += 1;
         nextPlayerIndex = nextPlayerIndex % players.size();
+        if(moves.size() == board.getSize()*board.getSize()){
+            this.gameState = GameState.DRAW;
+        }
     }
     public void undo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'undo'");
+        
     }
     public void printBoard() {
         this.board.display();

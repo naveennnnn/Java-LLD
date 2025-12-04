@@ -38,6 +38,14 @@ public class Player {
         System.out.println("Enter the column");
         int col = sc.nextInt();
         Cell currCell = board.getCell(row,col);
+        if(currCell.getCellState() == CellState.OCCUPIED){
+            System.out.println("Cell is already occupied, please choose another cell");
+            return makeMove(board);
+        }
+        else if(row>board.getSize() || col> board.getSize() || row<0 || col<0){
+            System.out.println("Invalid Cell, please choose another cell");
+            return makeMove(board);
+        }
         currCell.setRowNo(row);
         currCell.setColNo(col);
         currCell.setPlayer(this);
