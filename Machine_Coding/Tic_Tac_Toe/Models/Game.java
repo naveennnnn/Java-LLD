@@ -61,19 +61,31 @@ public class Game {
         this.winningStrategies = winningStrategies;
     }
     public void makeMove(){
-        Player currPlayer = players.get(nextPlayerIndex);
+        Player currPlayer = players.get(nextPlayerIndex% players.size());
         Move newMove = currPlayer.makeMove(this.board);
         moves.add(newMove);
 
         checkWinner(currPlayer,newMove);
         nextPlayerIndex += 1;
-        nextPlayerIndex = nextPlayerIndex % players.size();
+        // nextPlayerIndex = nextPlayerIndex % players.size();
         if(moves.size() == board.getSize()*board.getSize()){
             this.gameState = GameState.DRAW;
         }
     }
     public void undo() {
-        
+        if(moves.size()==0){
+            System.out.println("No moves to undo");
+            return;
+        }
+        Move lastMove = moves.get(moves.size()-1);
+        moves.remove(moves.size()-1);
+        board.undo(lastMove);
+        for(WinningStrategy winningStrategy:winningStrategies){
+            winningStrategy.undo(board,lastMove);
+        }
+        nextPlayerIndex -= 1;
+        System.out.println("nextPlayerIndex :"+nextPlayerIndex);
+        // nextPlayerIndex %= players.size();
     }
     public void printBoard() {
         this.board.display();

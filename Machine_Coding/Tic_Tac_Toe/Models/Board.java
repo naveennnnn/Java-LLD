@@ -47,4 +47,10 @@ public class Board {
             System.out.println();
         }
     }
+
+    public void undo(Move lastMove) {
+        Cell currCell = lastMove.getCell();
+        currCell.setPlayer(null);
+        currCell.setCellState(CellState.FREE);
+    }
 }

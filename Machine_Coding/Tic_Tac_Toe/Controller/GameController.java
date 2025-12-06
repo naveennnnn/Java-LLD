@@ -40,6 +40,7 @@ public class GameController {
     
 
     public void undo(Game game){
+        System.out.println("Undo happening");
         game.undo();
     }
 

@@ -6,4 +6,6 @@ import Machine_Coding.Tic_Tac_Toe.Models.Player;
 
 public interface WinningStrategy {
     boolean checkWinner(Board board,Move move);
+
+    void undo(Board board,Move lastMove);
 }

@@ -24,5 +24,17 @@ public class DiagonalWinningStrategy implements WinningStrategy{
         }
         return false;
     }
-    
+    @Override
+    public void undo(Board board,Move lastMove) {
+        int row = lastMove.getCell().getRowNo();
+        int col = lastMove.getCell().getColNo();
+        String playerSymbol = lastMove.getPlayer().getSymbol();
+        int size = board.getSize();
+        if(row == col){
+            lDiag.put(playerSymbol,lDiag.get(playerSymbol)-1);
+        }
+        else if(row+col == size){
+            rDiag.put(playerSymbol,rDiag.get(playerSymbol)-1);
+        }
+    }
 }

@@ -46,8 +46,8 @@ public class Player {
             System.out.println("Invalid Cell, please choose another cell");
             return makeMove(board);
         }
-        currCell.setRowNo(row);
-        currCell.setColNo(col);
+        // currCell.setRowNo(row);
+        // currCell.setColNo(col);
         currCell.setPlayer(this);
         currCell.setCellState(CellState.OCCUPIED);
 

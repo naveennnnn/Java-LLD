@@ -26,5 +26,11 @@ public class RowWinningStrategy implements WinningStrategy{
         if(currMap.get(playerSymbol) == size) return true;
         return false;
     }
-    
+    @Override
+    public void undo(Board board,Move lastMove) {
+        int row = lastMove.getCell().getRowNo();
+        String playerSymbol = lastMove.getPlayer().getSymbol();
+        HashMap<String,Integer> currMap = rowMap.get(row);
+        currMap.put(playerSymbol,currMap.get(playerSymbol)-1);
+    }
 }
