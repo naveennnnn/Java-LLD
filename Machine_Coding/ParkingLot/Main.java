@@ -36,5 +36,6 @@ public class Main {
 
         System.out.println("Gate Id: "+ticket.getGateId());
         System.out.println("Entry time :"+ticket.getEntryTime());
+        System.out.println("ticket ID: "+ticket.getId());
     }
 }
