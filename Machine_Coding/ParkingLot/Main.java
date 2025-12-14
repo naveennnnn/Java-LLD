@@ -39,8 +39,8 @@ public class Main {
         TwoWheelerStrategy.setPriceForFirst3Hour(100);
         TwoWheelerStrategy.setPriceForExtraHour(50);
 
-        FourWheelerStrategy.setPriceForFirst3Hour(100);
-        FourWheelerStrategy.setPriceForExtraHour(50);
+        FourWheelerStrategy.setPriceForFirst3Hour(200);
+        FourWheelerStrategy.setPriceForExtraHour(75);
 
         TicketRepo ticketRepo = new TicketRepo();
         TicketService ticketService = new TicketService(ticketRepo);

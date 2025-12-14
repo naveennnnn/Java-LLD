@@ -20,6 +20,7 @@ public class BillService {
             throw new InvalidTicketException("Invalid Ticket ID");
         }
         Ticket ticket = opTicket.get();
+        ticketRepo.removeTicket(ticketId);
         Bill bill = new Bill();
         bill.setTicketId(ticketId);
         Instant exit = Instant.now();

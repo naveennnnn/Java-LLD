@@ -22,4 +22,8 @@ public class TicketRepo {
         }
         return Optional.empty();
     }
+
+    public void removeTicket(Long ticketId){
+        hm.remove(ticketId);
+    }
 }
