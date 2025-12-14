@@ -3,6 +3,12 @@ public class Gate extends BaseModel{
     private long floorId;
     private GateType gateType;
 
+    
+    public Gate(long floorId, GateType gateType) {
+        this.floorId = floorId;
+        this.gateType = gateType;
+    }
+
     public void setGateType(GateType gateType) {
         this.gateType = gateType;
     }
