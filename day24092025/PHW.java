@@ -1,3 +1,5 @@
+package day24092025;
+
 public class PHW implements Runnable{
     @Override
     public void run() {

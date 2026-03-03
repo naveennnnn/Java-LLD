@@ -1,3 +1,5 @@
+package day24092025;
+
 public class NumberPrinter implements Runnable{
     private int i;
     NumberPrinter(int i){

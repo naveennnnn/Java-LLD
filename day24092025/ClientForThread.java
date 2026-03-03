@@ -1,6 +1,8 @@
+package day24092025;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-public class Client {
+public class ClientForThread {
     public static void main(String[] args) {
         // PHW p = new PHW();
         // System.out.println("Main thread name:"+Thread.currentThread().getName());
@@ -17,11 +19,13 @@ public class Client {
 
         // Production way to create threads
         ExecutorService es = Executors.newFixedThreadPool(10);
+        ExecutorService es1 = Executors.newCachedThreadPool(); // Doesnt have fixed number of threads, it will create new threads as per the need
         for(int i = 1;i<=100;i++){
             // NumberPrinter np = new NumberPrinter(i);
             // es.submit(np);
-            es.submit(new NumberPrinter(i));
+            System.out.println("i :"+i+" with thread Name : "+Thread.currentThread().getName());
+            es1.submit(new NumberPrinter(i));
         }
-        ExecutorService es1 = Executors.newCachedThreadPool(); // Doesnt have fixed number of threads, it will create new threads as per the need
+        
     }
 }
